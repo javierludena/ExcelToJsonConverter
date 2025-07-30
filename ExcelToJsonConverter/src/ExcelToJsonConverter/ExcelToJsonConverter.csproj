@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <PackageId>ExcelToJsonConverter</PackageId>
+    <PackageVersion>1.1.0</PackageVersion>
+    <Authors>Javier Ludeña</Authors>
+    <Description>Convert Excel files to JSON in .NET Framework 4.5 applications with ASP.NET MVC support</Description>
+    <PackageTags>excel;json;converter;mvc;aspnet;dotnet-framework</PackageTags>
+    <RepositoryUrl>https://github.com/javierludena/ExcelToJsonConverter</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ProjectGuid>{1F4E7397-865C-4C8A-9D5C-2A4B4A4E7397}</ProjectGuid>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' Or '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+    <PackageReference Include="EPPlus" Version="6.1.1" />
+  </ItemGroup>
+
+</Project>

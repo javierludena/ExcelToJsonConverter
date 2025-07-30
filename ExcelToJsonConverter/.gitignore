@@ -1,0 +1,12 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Binaries
+bin/
+obj/
+
+# NuGet
+*.nupkg

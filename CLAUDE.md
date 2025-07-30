@@ -1,0 +1,92 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+This is a .NET library ecosystem for converting Excel files to JSON format, targeting multiple .NET Framework versions. The repository contains:
+
+1. **ExcelToJsonConverter** - The main NuGet library (.NET Framework 4.5)
+2. **ExcelApiExample** - Modern .NET 9.0 Web API example using the library
+3. **FrameworkApiExampleV2** - Legacy .NET Framework 4.5 ASP.NET MVC Web API example
+
+## Architecture
+
+### Core Library Structure
+- **Main Library**: `ExcelToJsonConverter/src/ExcelToJsonConverter/`
+  - `ExcelConverter.cs` - Main static class with conversion methods
+  - `ExcelConverterOptions.cs` - Configuration options for conversion
+  - `Extensions/` - Extension methods and utilities
+
+### Key Dependencies
+- **EPPlus**: Excel file processing (version 4.5.3.3 for .NET 4.5, version 6.1.1 for .NET 4.8)
+- **Newtonsoft.Json**: JSON serialization (version 13.0.3)
+
+### Example Applications
+- **ExcelApiExample**: Modern minimal API with Swagger documentation
+- **FrameworkApiExampleV2**: Traditional MVC pattern with full Web API controllers
+
+## Common Development Commands
+
+### Building the Solution
+```bash
+# Build main library
+dotnet build ExcelToJsonConverter/src/ExcelToJsonConverter/ExcelToJsonConverter.csproj
+
+# Build .NET 9.0 API example
+dotnet build ExcelApiExample/ExcelApiExample.csproj
+
+# Build entire solution
+dotnet build ExcelToJsonConverter.sln
+```
+
+### Running Examples
+```bash
+# Run modern .NET 9.0 API (with Swagger at /swagger)
+dotnet run --project ExcelApiExample
+
+# Legacy Framework project requires Visual Studio or MSBuild
+# Use IIS Express or Visual Studio to run FrameworkApiExampleV2
+```
+
+### Package Management
+```bash
+# Restore NuGet packages
+dotnet restore
+
+# Create NuGet package (automatically done on build due to GeneratePackageOnBuild=true)
+dotnet pack ExcelToJsonConverter/src/ExcelToJsonConverter/ExcelToJsonConverter.csproj
+```
+
+### Testing
+The test project exists but currently only contains a placeholder. Tests would be run with:
+```bash
+dotnet test ExcelToJsonConverter/tests/ExcelToJsonConverter.Tests/
+```
+
+## Target Framework Considerations
+
+- **Library**: Targets .NET Framework 4.5 for maximum compatibility
+- **Modern Example**: Uses .NET 9.0 with modern C# features
+- **Legacy Example**: Uses .NET Framework 4.5 with traditional ASP.NET MVC
+
+When adding features:
+- Maintain backward compatibility for .NET Framework 4.5
+- Use conditional compilation (`#if NET48`) for framework-specific features like async/await
+- Test compatibility across both modern and legacy example projects
+
+## API Endpoints
+
+### ExcelApiExample (.NET 9.0)
+- `POST /api/excel/convert` - Convert uploaded Excel file to JSON
+
+### FrameworkApiExampleV2 (.NET Framework 4.5)
+- Uses traditional MVC controller structure
+- Upload functionality in `ExcelUploadController.cs`
+
+## File Structure Notes
+
+- Main solution file: `ExcelToJsonConverter.sln`
+- Each example has its own solution/project structure
+- Package configurations in `nuget.config` files
+- Legacy project uses `packages.config` for NuGet packages
