@@ -200,6 +200,45 @@ public class UploadController : Controller
 }
 ```
 
+## Pruebas con Postman
+
+### Configurar la petición
+
+1. **Método**: `POST`
+2. **URL**: `https://localhost:44319/api/excel/convert` (o tu puerto local)
+3. **Headers**: No es necesario configurar Content-Type (Postman lo detecta automáticamente)
+
+### Enviar archivo Excel
+
+1. En la pestaña **Body**, seleccionar **form-data**
+2. **Key**: Escribir cualquier nombre (ej: `file`)
+3. **Cambiar tipo**: En el dropdown de la derecha, cambiar de "Text" a **"File"**
+4. **Value**: Hacer clic en **"Choose Files"** y seleccionar tu archivo Excel
+5. Hacer clic en **Send**
+
+### Respuesta esperada
+
+```json
+{
+  "Fichero de carga": [
+    {
+      "Fecha de Albarán": 45631.0,
+      "Organización ventas": "1046",
+      "Nombre Solicitante": "PERE VALLS, S.A.",
+      "Material": "BFPC1",
+      "Cantidad de pedido": 28.08,
+      "Nº Pedido de Venta": "1160001367"
+    }
+  ]
+}
+```
+
+### Posibles errores
+
+- **415 Unsupported Media Type**: Verificar que estás enviando como form-data con tipo File
+- **400 Bad Request**: El archivo puede estar corrupto o no ser un Excel válido
+- **500 Internal Server Error**: Revisar que las dependencias (EPPlus) estén instaladas correctamente
+
 ## Estructura del proyecto
 
 ```
