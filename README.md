@@ -21,15 +21,41 @@ Esta librería nació de la necesidad de procesar archivos Excel complejos en ap
 
 ## Instalación
 
-```bash
+### Desde Visual Studio (Recomendado)
+
+1. **Clic derecho** en tu proyecto → **Administrar paquetes NuGet**
+2. Ir a la pestaña **Examinar**
+3. Buscar **"ExcelToJsonConverter"**
+4. Hacer clic en **Instalar**
+
+### Desde Package Manager Console
+
+```powershell
 Install-Package ExcelToJsonConverter
 ```
 
-O vía .NET CLI:
+### Desde .NET CLI
 
 ```bash
 dotnet add package ExcelToJsonConverter
 ```
+
+### Instalación manual (si compilas desde código fuente)
+
+1. **Compilar la librería:**
+   ```bash
+   cd ExcelToJsonConverter/src/ExcelToJsonConverter
+   dotnet build --configuration Release
+   ```
+
+2. **Opción A - Usar la DLL directamente:**
+   - Copiar `ExcelToJsonConverter.dll` desde `bin/Release/net45/`
+   - Agregar referencia en tu proyecto: Clic derecho → **Agregar referencia** → **Examinar**
+
+3. **Opción B - Instalar el paquete local:**
+   - El archivo .nupkg se genera en `bin/Release/`
+   - En Visual Studio: **Herramientas** → **Opciones** → **Administrador de paquetes NuGet** → **Orígenes de paquetes**
+   - Agregar una fuente local apuntando a la carpeta `bin/Release/`
 
 ## Estructura del JSON generado
 
