@@ -222,12 +222,12 @@ public class UploadController : Controller
 {
   "Fichero de carga": [
     {
-      "Fecha de Albarán": 45631.0,
-      "Organización ventas": "1046",
-      "Nombre Solicitante": "PERE VALLS, S.A.",
-      "Material": "BFPC1",
-      "Cantidad de pedido": 28.08,
-      "Nº Pedido de Venta": "1160001367"
+      "Fecha de Albarán": 44927.0,
+      "Organización ventas": "1000",
+      "Nombre Solicitante": "EMPRESA EJEMPLO, S.L.",
+      "Material": "MAT001",
+      "Cantidad de pedido": 15.50,
+      "Nº Pedido de Venta": "1000000001"
     }
   ]
 }
