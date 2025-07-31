@@ -20,7 +20,7 @@ This is a .NET library ecosystem for converting Excel files to JSON format, targ
 
 ### Key Dependencies
 - **EPPlus**: Excel file processing (version 4.5.3.3 for .NET 4.5, version 6.1.1 for .NET 4.8)
-- **Newtonsoft.Json**: JSON serialization (version 13.0.3)
+- **Newtonsoft.Json**: JSON serialization (version 11.0.1 for compatibility)
 
 ### Example Applications
 - **ExcelApiExample**: Modern minimal API with Swagger documentation
@@ -90,3 +90,19 @@ When adding features:
 - Each example has its own solution/project structure
 - Package configurations in `nuget.config` files
 - Legacy project uses `packages.config` for NuGet packages
+
+## Release History
+
+### v1.1.1 (2025-07-31)
+- Downgraded Newtonsoft.Json from 13.0.3 to 11.0.1 for compatibility with legacy projects
+- Maintains all functionality while supporting older dependency versions
+- Release files available in `release-files/` directory
+
+### v1.1.0 
+- Initial structured library release with array support
+
+## Git Commit Guidelines
+
+- Do not include Claude Code references in commit messages
+- Keep commit messages concise and descriptive
+- Use conventional commit format (feat:, fix:, chore:, docs:)
