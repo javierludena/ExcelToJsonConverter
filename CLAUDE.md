@@ -93,6 +93,11 @@ When adding features:
 
 ## Release History
 
+### v1.1.3 (2025-07-31)
+- Added troubleshooting documentation for Newtonsoft.Json binding redirect issues
+- Updated example project with Cliente model replacing FicheroCarga
+- Enhanced documentation with XML configuration examples for web.config/app.config
+
 ### v1.1.1 (2025-07-31)
 - Downgraded Newtonsoft.Json from 13.0.3 to 11.0.1 for compatibility with legacy projects
 - Maintains all functionality while supporting older dependency versions
