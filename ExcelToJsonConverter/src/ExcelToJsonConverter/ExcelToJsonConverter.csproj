@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net45</TargetFramework>
     <PackageId>ExcelToJsonConverter</PackageId>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.1.1</PackageVersion>
     <Authors>Javier Ludeña</Authors>
     <Description>Convert Excel files to JSON in .NET Framework 4.5 applications with ASP.NET MVC support</Description>
     <PackageTags>excel;json;converter;mvc;aspnet;dotnet-framework</PackageTags>
