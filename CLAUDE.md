@@ -101,6 +101,25 @@ When adding features:
 ### v1.1.0 
 - Initial structured library release with array support
 
+## Troubleshooting
+
+### Newtonsoft.Json Binding Redirect Issues
+
+If you encounter binding redirect errors when using the library in consumer projects, the solution is to change the Newtonsoft.Json binding redirect in the consumer project's `web.config` or `app.config` from version 13.0.0.0 to 11.0.0.0:
+
+```xml
+<runtime>
+  <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+    <dependentAssembly>
+      <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+      <bindingRedirect oldVersion="0.0.0.0-11.0.0.0" newVersion="11.0.0.0" />
+    </dependentAssembly>
+  </assemblyBinding>
+</runtime>
+```
+
+This ensures compatibility with the library's Newtonsoft.Json 11.0.1 dependency.
+
 ## Git Commit Guidelines
 
 - Do not include Claude Code references in commit messages

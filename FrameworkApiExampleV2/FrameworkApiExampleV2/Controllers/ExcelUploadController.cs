@@ -36,31 +36,31 @@
                              // Nota: Usamos ConvertToJson síncrono aquí, ya que el async es para.NET 4.8+
                              string jsonResult = ExcelConverter.ConvertToJson(stream);
 
-                             // EJEMPLO: Cómo deserializar el JSON a objetos tipados
-                             // =====================================================
-                             // 
-                             // OPCIÓN 1: Usar la clase helper ExcelDeserializer
-                             // var datosFichero = ExcelDeserializer.DeserializeFicheroCarga(jsonResult);
-                             // 
-                             // OPCIÓN 2: Para hojas con nombres específicos
-                             // var clientes = ExcelDeserializer.DeserializeSheet<Cliente>(jsonResult, "Clientes");
-                             // var pedidos = ExcelDeserializer.DeserializeSheet<Pedido>(jsonResult, "Pedidos");
-                             //
-                             // OPCIÓN 3: Ver qué hojas están disponibles
-                             // var nombreHojas = ExcelDeserializer.GetSheetNames(jsonResult);
-                             //
-                             // EJEMPLO DE USO REAL:
-                             // var datos = ExcelDeserializer.DeserializeFicheroCarga(jsonResult);
-                             // foreach(var item in datos)
-                             // {
-                             //     Console.WriteLine($"Cliente: {item.NombreSolicitante}");
-                             //     Console.WriteLine($"Material: {item.TextoBreveMaterial}");
-                             //     Console.WriteLine($"Cantidad: {item.CantidadPedido}");
-                             //     Console.WriteLine($"Importe: {item.Importe}");
-                             // }
+                        // EJEMPLO: Cómo deserializar el JSON a objetos tipados
+                        // =====================================================
+                        // 
+                        // OPCIÓN 1: Usar la clase helper ExcelDeserializer
+                        // var datosFichero = ExcelDeserializer.DeserializeFicheroCarga(jsonResult);
+                        // 
+                        // OPCIÓN 2: Para hojas con nombres específicos
+                        var clientes = ExcelDeserializer.DeserializeSheet<Cliente>(jsonResult, "CLIENTES");
+                        //var pedidos = ExcelDeserializer.DeserializeSheet<Pedido>(jsonResult, "Pedidos");
+                        //
+                        // OPCIÓN 3: Ver qué hojas están disponibles
+                        // var nombreHojas = ExcelDeserializer.GetSheetNames(jsonResult);
+                        //
+                        // EJEMPLO DE USO REAL:
+                        // var datos = ExcelDeserializer.DeserializeFicheroCarga(jsonResult);
+                        // foreach(var item in datos)
+                        // {
+                        //     Console.WriteLine($"Cliente: {item.NombreSolicitante}");
+                        //     Console.WriteLine($"Material: {item.TextoBreveMaterial}");
+                        //     Console.WriteLine($"Cantidad: {item.CantidadPedido}");
+                        //     Console.WriteLine($"Importe: {item.Importe}");
+                        // }
 
-                             // Devuelve el JSON en la respuesta.
-                             return new HttpResponseMessage(HttpStatusCode.OK)
+                        // Devuelve el JSON en la respuesta.
+                        return new HttpResponseMessage(HttpStatusCode.OK)
                              {
                                  Content = new StringContent(jsonResult, System.Text.Encoding.UTF8, "application/json")
                              };

@@ -35,9 +35,9 @@ namespace FrameworkApiExample.Models
         /// </summary>
         /// <param name="jsonResult">JSON completo del Excel</param>
         /// <returns>Lista de objetos FicheroCarga</returns>
-        public static List<FicheroCarga> DeserializeFicheroCarga(string jsonResult)
+        public static List<Cliente> DeserializeFicheroCarga(string jsonResult)
         {
-            return DeserializeSheet<FicheroCarga>(jsonResult, "Fichero de carga");
+            return DeserializeSheet<Cliente>(jsonResult, "Fichero de carga");
         }
 
         /// <summary>

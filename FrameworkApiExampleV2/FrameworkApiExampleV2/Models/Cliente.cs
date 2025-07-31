@@ -7,7 +7,7 @@ namespace FrameworkApiExample.Models
     /// Clase para deserializar los datos del fichero de carga desde Excel
     /// Mapea las columnas con espacios y caracteres especiales usando JsonProperty
     /// </summary>
-    public class FicheroCarga
+    public class Cliente
     {
         [JsonProperty("Fecha de Albarán")]
         public double FechaAlbaran { get; set; }
